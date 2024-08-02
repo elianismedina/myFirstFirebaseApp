@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138880942114",
+    "project_id": "myfirstfirebaseapp-2386d",
+    "storage_bucket": "myfirstfirebaseapp-2386d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138880942114:android:8ca460161cbfe73f128a7b",
+        "android_client_info": {
+          "package_name": "com.elianisdev.myfistfirebaseapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4WeVl_LweUUDcAo7D_72XjKLLZsVMqTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
