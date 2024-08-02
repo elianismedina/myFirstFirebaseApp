@@ -39,7 +39,7 @@ import com.elianisdev.myfistfirebaseapp.ui.theme.ShapeButton
 
 @Preview
 @Composable
-fun InitialScreen() {
+fun InitialScreen(navigateToLogin: () -> Unit = {}, navigateToSignUp: () -> Unit = {}) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -62,7 +62,7 @@ fun InitialScreen() {
         )
         Spacer(modifier = Modifier.weight(1f))
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navigateToSignUp() },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)
@@ -72,18 +72,25 @@ fun InitialScreen() {
             Text(text = "Sign up free",
                 color = Black,
                 fontWeight = FontWeight.Bold)
+
         }
         Spacer(modifier = Modifier.height(8.dp))
         CustomButton(Modifier.clickable{}, painterResource(id = R.drawable.google), "Continue with Google")
         Spacer(modifier = Modifier.height(8.dp))
         CustomButton(Modifier.clickable{}, painterResource(id = R.drawable.facebook), "Continue with Facebook")
-        Text(text = "Log in", color = Color.White, modifier = Modifier.padding(24.dp))
+        Text(text = "Log in",
+            color = Color.White,
+            modifier = Modifier
+                .padding(24.dp)
+                .clickable { navigateToLogin() },
+            fontWeight = FontWeight.Bold
+        )
         Spacer(modifier = Modifier.weight(1f))
     }
 }
 
 @Composable
-fun CustomButton(modifier:Modifier,painter: Painter, title: String) {
+fun CustomButton(modifier:Modifier, painter: Painter, title: String) {
     Box(modifier = Modifier
         .fillMaxWidth()
         .height(48.dp)
