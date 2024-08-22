@@ -37,7 +37,7 @@ import com.elianisdev.myfistfirebaseapp.ui.theme.Green
 import com.elianisdev.myfistfirebaseapp.ui.theme.ShapeButton
 
 
-@Preview
+
 @Composable
 fun InitialScreen(navigateToLogin: () -> Unit = {}, navigateToSignUp: () -> Unit = {}) {
     Column(
@@ -68,10 +68,12 @@ fun InitialScreen(navigateToLogin: () -> Unit = {}, navigateToSignUp: () -> Unit
                 .height(48.dp)
                 .padding(horizontal = 32.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Green)
+
         ) {
             Text(text = "Sign up free",
                 color = Black,
                 fontWeight = FontWeight.Bold)
+
 
         }
         Spacer(modifier = Modifier.height(8.dp))
@@ -87,6 +89,8 @@ fun InitialScreen(navigateToLogin: () -> Unit = {}, navigateToSignUp: () -> Unit
         )
         Spacer(modifier = Modifier.weight(1f))
     }
+
+
 }
 
 @Composable
@@ -113,4 +117,5 @@ fun CustomButton(modifier:Modifier, painter: Painter, title: String) {
 
     }
 }
+
 
