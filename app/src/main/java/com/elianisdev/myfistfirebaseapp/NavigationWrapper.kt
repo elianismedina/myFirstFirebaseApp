@@ -33,7 +33,7 @@ fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth) 
         composable("home") {
             HomeScreen(
                 auth,
-                navigateBackToLogin = { navHostController.navigate("logIn") }
+                navigateBackToInitial = { navHostController.navigate("initial") }
             )
         }
         

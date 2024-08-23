@@ -32,7 +32,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 @Composable
-fun HomeScreen(auth: FirebaseAuth, navigateBackToLogin: () -> Unit = {}) {
+fun HomeScreen(auth: FirebaseAuth, navigateBackToInitial: () -> Unit = {}) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -60,7 +60,7 @@ fun HomeScreen(auth: FirebaseAuth, navigateBackToLogin: () -> Unit = {}) {
         Button(onClick = {
             auth.signOut()
             Log.i("HomeScreen", "User is logged out")
-            navigateBackToLogin()
+            navigateBackToInitial()
         }){
             Text(text = "Log Out", color = Color.White)
 
