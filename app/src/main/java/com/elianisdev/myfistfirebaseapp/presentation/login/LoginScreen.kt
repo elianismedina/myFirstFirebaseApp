@@ -34,7 +34,7 @@ import com.elianisdev.myfistfirebaseapp.ui.theme.SelectedField
 import com.elianisdev.myfistfirebaseapp.ui.theme.UnselectedField
 
 @Composable
-fun LoginScreen(auth: FirebaseAuth) {
+fun LoginScreen(auth: FirebaseAuth, navigateToHome: () -> Unit = {}) {
     var email: String by remember { mutableStateOf(value = "") }
     var password: String by remember { mutableStateOf(value = "") }
 
@@ -87,6 +87,7 @@ fun LoginScreen(auth: FirebaseAuth) {
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.i("Login", "Login successful")
+                    navigateToHome()
                 } else {
                     Log.e("Login", "Login failed", task.exception)
                 }
