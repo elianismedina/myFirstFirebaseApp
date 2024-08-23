@@ -1,6 +1,7 @@
 package com.elianisdev.myfistfirebaseapp.presentation.home
 
 import android.R.drawable.ic_menu_more
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,16 +23,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.elianisdev.myfistfirebaseapp.ui.theme.BackgroundButton
+
 import com.elianisdev.myfistfirebaseapp.ui.theme.Black
-import com.elianisdev.myfistfirebaseapp.ui.theme.ShapeButton
+
 import com.google.firebase.auth.FirebaseAuth
 
 
 
 
 @Composable
-fun HomeScreen(auth: FirebaseAuth) {
+fun HomeScreen(auth: FirebaseAuth, navigateBackToLogin: () -> Unit = {}) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -56,6 +57,15 @@ fun HomeScreen(auth: FirebaseAuth) {
             fontSize = 24.sp,
             modifier = Modifier.padding(vertical = 16.dp)
         )
+        Button(onClick = {
+            auth.signOut()
+            Log.i("HomeScreen", "User is logged out")
+            navigateBackToLogin()
+        }){
+            Text(text = "Log Out", color = Color.White)
+
+        }
+
 
 
     }

@@ -31,7 +31,10 @@ fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth) 
             SignupScreen(auth)
         }
         composable("home") {
-            HomeScreen(auth)
+            HomeScreen(
+                auth,
+                navigateBackToLogin = { navHostController.navigate("logIn") }
+            )
         }
         
     }
