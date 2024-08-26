@@ -1,5 +1,6 @@
 package com.elianisdev.myfistfirebaseapp.presentation.home
 
+
 import android.R.drawable.ic_menu_more
 import android.util.Log
 import androidx.compose.foundation.background
@@ -12,6 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,9 +33,32 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 
-
 @Composable
-fun HomeScreen(auth: FirebaseAuth, navigateBackToInitial: () -> Unit = {}) {
+fun ScaffoldExample(
+    auth: FirebaseAuth,
+    navigateBackToInitial: () -> Unit
+){
+    Scaffold(
+        topBar ={
+            Text(text = "Top Bar",
+            color = Color.White
+            )
+        }
+
+
+
+    ) {
+        innerPadding ->
+        HomeScreen(auth = FirebaseAuth.getInstance(),
+            navigateBackToInitial = navigateBackToInitial,
+        modifier = Modifier.padding(innerPadding)
+        )
+
+
+    }
+}
+@Composable
+fun HomeScreen(auth: FirebaseAuth, navigateBackToInitial: () -> Unit = {} , modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -70,9 +96,4 @@ fun HomeScreen(auth: FirebaseAuth, navigateBackToInitial: () -> Unit = {}) {
 
     }
 
-}
-@Preview
-@Composable
-fun HomeScreenPreview() {
-    HomeScreen(FirebaseAuth.getInstance())
 }

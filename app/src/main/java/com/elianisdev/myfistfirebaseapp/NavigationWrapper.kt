@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.elianisdev.myfistfirebaseapp.presentation.home.HomeScreen
+import com.elianisdev.myfistfirebaseapp.presentation.home.ScaffoldExample
 import com.elianisdev.myfistfirebaseapp.presentation.initial.InitialScreen
 import com.elianisdev.myfistfirebaseapp.presentation.login.LoginScreen
 import com.elianisdev.myfistfirebaseapp.presentation.signup.SignupScreen
@@ -31,7 +32,7 @@ fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth) 
             SignupScreen(auth)
         }
         composable("home") {
-            HomeScreen(
+            ScaffoldExample(
                 auth,
                 navigateBackToInitial = { navHostController.navigate("initial") }
             )
