@@ -43,6 +43,11 @@ fun ScaffoldExample(
             Text(text = "Top Bar",
             color = Color.White
             )
+        },
+        bottomBar = {
+            Text(text = "Bottom Bar",
+                color = Color.White
+            )
         }
 
 
